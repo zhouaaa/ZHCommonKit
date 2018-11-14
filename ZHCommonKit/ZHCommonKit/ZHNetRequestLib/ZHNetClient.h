@@ -6,7 +6,7 @@
 //  Copyright © 2018年 周辉. All rights reserved.
 //
 
-#import "AFHTTPSessionManager.h"
+#import <AFNetworking/AFNetworking.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
