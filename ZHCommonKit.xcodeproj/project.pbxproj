@@ -35,6 +35,10 @@
 		0490C66D219BBE89001BA533 /* ZHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C659219BBE89001BA533 /* ZHTime.m */; };
 		0490C679219BC27B001BA533 /* ZHJRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C678219BC27B001BA533 /* ZHJRToast.m */; };
 		0490C67C219BCEB5001BA533 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C67B219BCEB5001BA533 /* ViewController.m */; };
+		0490C68F219BF179001BA533 /* ZHNetClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C689219BF179001BA533 /* ZHNetClient.m */; };
+		0490C690219BF179001BA533 /* ZHNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C68A219BF179001BA533 /* ZHNetRequest.m */; };
+		0490C691219BF179001BA533 /* UIViewController+NetRequestLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C68C219BF179001BA533 /* UIViewController+NetRequestLib.m */; };
+		0490C692219BF179001BA533 /* ZHNetRequestCashData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C68D219BF179001BA533 /* ZHNetRequestCashData.m */; };
 		26E2C961B9157D0A94F517C9 /* libPods-ZHCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1003720B5FAC9B376BD1298 /* libPods-ZHCommonKit.a */; };
 		5269806966BD33937172DB99 /* libPods-ZHCommonKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8B2683949C962845DC7919 /* libPods-ZHCommonKitUITests.a */; };
 		C42C2290DA1DCB9357375513 /* libPods-ZHCommonKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6C1FFA6BCE0E7E1C553FFD /* libPods-ZHCommonKitTests.a */; };
@@ -117,6 +121,15 @@
 		0490C678219BC27B001BA533 /* ZHJRToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHJRToast.m; sourceTree = "<group>"; };
 		0490C67A219BCEB5001BA533 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0490C67B219BCEB5001BA533 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0490C686219BF178001BA533 /* ZHNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetRequest.h; sourceTree = "<group>"; };
+		0490C687219BF179001BA533 /* ZHNetRequestCashData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetRequestCashData.h; sourceTree = "<group>"; };
+		0490C688219BF179001BA533 /* ZHNetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetClient.h; sourceTree = "<group>"; };
+		0490C689219BF179001BA533 /* ZHNetClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNetClient.m; sourceTree = "<group>"; };
+		0490C68A219BF179001BA533 /* ZHNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNetRequest.m; sourceTree = "<group>"; };
+		0490C68B219BF179001BA533 /* ZHNetRequestLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetRequestLib.h; sourceTree = "<group>"; };
+		0490C68C219BF179001BA533 /* UIViewController+NetRequestLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NetRequestLib.m"; sourceTree = "<group>"; };
+		0490C68D219BF179001BA533 /* ZHNetRequestCashData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNetRequestCashData.m; sourceTree = "<group>"; };
+		0490C68E219BF179001BA533 /* UIViewController+NetRequestLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NetRequestLib.h"; sourceTree = "<group>"; };
 		132A6948F52644F9F45072EF /* Pods-ZHCommonKitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHCommonKitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHCommonKitUITests/Pods-ZHCommonKitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CEDF0D540C0321202EC90C0 /* Pods-ZHCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHCommonKit/Pods-ZHCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
 		2F6C1FFA6BCE0E7E1C553FFD /* libPods-ZHCommonKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZHCommonKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,6 +432,15 @@
 		0490C65A219BBE89001BA533 /* ZHNetRequestLib */ = {
 			isa = PBXGroup;
 			children = (
+				0490C68B219BF179001BA533 /* ZHNetRequestLib.h */,
+				0490C688219BF179001BA533 /* ZHNetClient.h */,
+				0490C689219BF179001BA533 /* ZHNetClient.m */,
+				0490C686219BF178001BA533 /* ZHNetRequest.h */,
+				0490C68A219BF179001BA533 /* ZHNetRequest.m */,
+				0490C687219BF179001BA533 /* ZHNetRequestCashData.h */,
+				0490C68D219BF179001BA533 /* ZHNetRequestCashData.m */,
+				0490C68E219BF179001BA533 /* UIViewController+NetRequestLib.h */,
+				0490C68C219BF179001BA533 /* UIViewController+NetRequestLib.m */,
 			);
 			path = ZHNetRequestLib;
 			sourceTree = "<group>";
@@ -465,6 +487,7 @@
 				044C7D65219BBB2D0028FEC8 /* Sources */,
 				044C7D66219BBB2D0028FEC8 /* Frameworks */,
 				044C7D67219BBB2D0028FEC8 /* Resources */,
+				7796663389980AAAE18BD8A1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -483,7 +506,6 @@
 				044C7D7D219BBB300028FEC8 /* Sources */,
 				044C7D7E219BBB300028FEC8 /* Frameworks */,
 				044C7D7F219BBB300028FEC8 /* Resources */,
-				1A64BB28B6ABC66CE5F20676 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -628,30 +650,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A64BB28B6ABC66CE5F20676 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ZHCommonKitTests/Pods-ZHCommonKitTests-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZHCommonKitTests/Pods-ZHCommonKitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2DB3B642B9FA260538923F47 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -674,6 +672,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7796663389980AAAE18BD8A1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZHCommonKit/Pods-ZHCommonKit-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZHCommonKit/Pods-ZHCommonKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -683,6 +705,7 @@
 			files = (
 				0490C668219BBE89001BA533 /* NSArray+ZHAdd.m in Sources */,
 				0490C667219BBE89001BA533 /* NSMutableArray+ZHAdd.m in Sources */,
+				0490C691219BF179001BA533 /* UIViewController+NetRequestLib.m in Sources */,
 				0490C65B219BBE89001BA533 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				044C7D7C219BBB300028FEC8 /* main.m in Sources */,
 				0490C679219BC27B001BA533 /* ZHJRToast.m in Sources */,
@@ -693,6 +716,7 @@
 				0490C663219BBE89001BA533 /* NSData+ZHAdd.m in Sources */,
 				0490C65F219BBE89001BA533 /* NSBundle+ZHAdd.m in Sources */,
 				044C7D6E219BBB2D0028FEC8 /* AppDelegate.m in Sources */,
+				0490C692219BF179001BA533 /* ZHNetRequestCashData.m in Sources */,
 				0490C65E219BBE89001BA533 /* UIApplication+ZHAdd.m in Sources */,
 				0490C66A219BBE89001BA533 /* NSMutableDictionary+ZHAdd.m in Sources */,
 				0490C66B219BBE89001BA533 /* NSObject+ZHAdd.m in Sources */,
@@ -701,6 +725,8 @@
 				0490C67C219BCEB5001BA533 /* ViewController.m in Sources */,
 				0490C669219BBE89001BA533 /* NSDictionary+ZHAdd.m in Sources */,
 				0490C664219BBE89001BA533 /* NSURL+ZHAdd.m in Sources */,
+				0490C690219BF179001BA533 /* ZHNetRequest.m in Sources */,
+				0490C68F219BF179001BA533 /* ZHNetClient.m in Sources */,
 				0490C665219BBE89001BA533 /* NSString+ZHAdd.m in Sources */,
 				0490C65C219BBE89001BA533 /* UIScrollView+ZHGesture.m in Sources */,
 				0490C666219BBE89001BA533 /* UITableView+ZHPlaceholder.m in Sources */,
@@ -809,7 +835,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -862,7 +888,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -878,6 +904,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A558G4HSFJ;
 				INFOPLIST_FILE = ZHCommonKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -896,6 +923,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A558G4HSFJ;
 				INFOPLIST_FILE = ZHCommonKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

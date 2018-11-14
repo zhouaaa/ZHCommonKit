@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "ZHCommonKit.h"
+
 
 @interface ViewController ()
 
@@ -22,10 +24,18 @@
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.9];
     
-    _bgview = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2)];
+    _bgview = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2, kScreenWidth, self.view.frame.size.height/2)];
     _bgview.backgroundColor = [UIColor redColor];
     [self.view addSubview:_bgview];
     
+    
+    [ZHNetClient initWithBasicURL:nil isOpenLog:YES];
+    ZHNetRequest *request = [[ZHNetRequest alloc] initWithRelativeURLString:@"http://api.bitkk.com/data/v1/kline?market=eth_btc&size=200&type=1min" success:^(id data) {
+        
+    } fail:^(NSError *error) {
+        
+    }];
+    [request postData];
 }
 
 /*

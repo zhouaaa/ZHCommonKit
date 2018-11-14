@@ -69,11 +69,11 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //顺序执行以下代码
         //isRepeats:YES 发消息 NO 暂停发消息
-        if (isRepeats) {
+        if (self->isRepeats) {
             [self.mtarget performSelectorOnMainThread:self.mSelector withObject:self.userInfo waitUntilDone:NO];
         }
         //方法中调用自己,来达到循环效果
-        if (isValid) {
+        if (self->isValid) {
             [self repeatSelector];
         }
     });
