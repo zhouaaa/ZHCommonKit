@@ -22,3 +22,4 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import <JXCategoryView/JXCategoryView.h>
