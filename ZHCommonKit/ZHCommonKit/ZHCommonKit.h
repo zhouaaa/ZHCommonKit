@@ -11,6 +11,8 @@
 #import "ZHCategoryHeader.h"//分类
 #import "ZHNetRequestLib.h"//网络请求
 #import "ZHDefineLayout.h"//宏
+#import "UIViewController+Comm.h"
+
 
 #import <AFNetworking/AFNetworking.h>
 #import <MBProgressHUD/MBProgressHUD.h>

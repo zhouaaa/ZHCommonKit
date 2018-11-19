@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04072F9F219D646E00E97716 /* UIViewController+Comm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04072F9E219D646E00E97716 /* UIViewController+Comm.m */; };
+		0408921B219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408921A219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.m */; };
+		0408921F219EB60B00B22A91 /* UINavigationController+ZHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408921E219EB60B00B22A91 /* UINavigationController+ZHAdd.m */; };
+		04089223219ED55200B22A91 /* UITextField+ZHHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04089222219ED55200B22A91 /* UITextField+ZHHistory.m */; };
 		044C7D6E219BBB2D0028FEC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C7D6D219BBB2D0028FEC8 /* AppDelegate.m */; };
 		044C7D74219BBB2D0028FEC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044C7D72219BBB2D0028FEC8 /* Main.storyboard */; };
 		044C7D76219BBB300028FEC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044C7D75219BBB300028FEC8 /* Assets.xcassets */; };
@@ -62,6 +66,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04072F9D219D646E00E97716 /* UIViewController+Comm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Comm.h"; sourceTree = "<group>"; };
+		04072F9E219D646E00E97716 /* UIViewController+Comm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Comm.m"; sourceTree = "<group>"; };
+		04089219219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+ZHAdd.h"; sourceTree = "<group>"; };
+		0408921A219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+ZHAdd.m"; sourceTree = "<group>"; };
+		0408921D219EB60B00B22A91 /* UINavigationController+ZHAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZHAdd.h"; sourceTree = "<group>"; };
+		0408921E219EB60B00B22A91 /* UINavigationController+ZHAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ZHAdd.m"; sourceTree = "<group>"; };
+		04089221219ED55200B22A91 /* UITextField+ZHHistory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+ZHHistory.h"; sourceTree = "<group>"; };
+		04089222219ED55200B22A91 /* UITextField+ZHHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ZHHistory.m"; sourceTree = "<group>"; };
 		044C7D69219BBB2D0028FEC8 /* ZHCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044C7D6C219BBB2D0028FEC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		044C7D6D219BBB2D0028FEC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -169,6 +181,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0408921C219EB5E700B22A91 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				0408921D219EB60B00B22A91 /* UINavigationController+ZHAdd.h */,
+				0408921E219EB60B00B22A91 /* UINavigationController+ZHAdd.m */,
+			);
+			path = UINavigationController;
+			sourceTree = "<group>";
+		};
+		04089220219ED52100B22A91 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				04089221219ED55200B22A91 /* UITextField+ZHHistory.h */,
+				04089222219ED55200B22A91 /* UITextField+ZHHistory.m */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
 		044C7D60219BBB2D0028FEC8 = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +290,9 @@
 		0490C624219BBE89001BA533 /* ZHCategory */ = {
 			isa = PBXGroup;
 			children = (
+				04089220219ED52100B22A91 /* UITextField */,
 				0490C646219BBE89001BA533 /* ZHCategoryHeader.h */,
+				0408921C219EB5E700B22A91 /* UINavigationController */,
 				0490C625219BBE89001BA533 /* UIScrollView */,
 				0490C628219BBE89001BA533 /* UILabel */,
 				0490C62B219BBE89001BA533 /* UIApplication */,
@@ -320,8 +352,8 @@
 		0490C631219BBE89001BA533 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
-				0490C632219BBE89001BA533 /* UIButton+ZHAdd.m */,
 				0490C633219BBE89001BA533 /* UIButton+ZHAdd.h */,
+				0490C632219BBE89001BA533 /* UIButton+ZHAdd.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -365,8 +397,10 @@
 		0490C640219BBE89001BA533 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				0490C641219BBE89001BA533 /* NSString+ZHAdd.m */,
 				0490C642219BBE89001BA533 /* NSString+ZHAdd.h */,
+				0490C641219BBE89001BA533 /* NSString+ZHAdd.m */,
+				04089219219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.h */,
+				0408921A219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -394,10 +428,10 @@
 		0490C64C219BBE89001BA533 /* NSDictory */ = {
 			isa = PBXGroup;
 			children = (
-				0490C64D219BBE89001BA533 /* NSDictionary+ZHAdd.m */,
-				0490C64E219BBE89001BA533 /* NSMutableDictionary+ZHAdd.m */,
 				0490C64F219BBE89001BA533 /* NSDictionary+ZHAdd.h */,
+				0490C64D219BBE89001BA533 /* NSDictionary+ZHAdd.m */,
 				0490C650219BBE89001BA533 /* NSMutableDictionary+ZHAdd.h */,
+				0490C64E219BBE89001BA533 /* NSMutableDictionary+ZHAdd.m */,
 			);
 			path = NSDictory;
 			sourceTree = "<group>";
@@ -449,6 +483,8 @@
 			isa = PBXGroup;
 			children = (
 				0490C66F219BBEA8001BA533 /* ZHDefineLayout.h */,
+				04072F9D219D646E00E97716 /* UIViewController+Comm.h */,
+				04072F9E219D646E00E97716 /* UIViewController+Comm.m */,
 			);
 			path = ZHComm;
 			sourceTree = "<group>";
@@ -708,8 +744,10 @@
 				0490C691219BF179001BA533 /* UIViewController+NetRequestLib.m in Sources */,
 				0490C65B219BBE89001BA533 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				044C7D7C219BBB300028FEC8 /* main.m in Sources */,
+				04089223219ED55200B22A91 /* UITextField+ZHHistory.m in Sources */,
 				0490C679219BC27B001BA533 /* ZHJRToast.m in Sources */,
 				0490C66D219BBE89001BA533 /* ZHTime.m in Sources */,
+				0408921F219EB60B00B22A91 /* UINavigationController+ZHAdd.m in Sources */,
 				0490C661219BBE89001BA533 /* UIColor+ZHAdd.m in Sources */,
 				0490C65D219BBE89001BA533 /* UILabel+ZHAdd.m in Sources */,
 				0490C660219BBE89001BA533 /* UIButton+ZHAdd.m in Sources */,
@@ -718,6 +756,7 @@
 				044C7D6E219BBB2D0028FEC8 /* AppDelegate.m in Sources */,
 				0490C692219BF179001BA533 /* ZHNetRequestCashData.m in Sources */,
 				0490C65E219BBE89001BA533 /* UIApplication+ZHAdd.m in Sources */,
+				0408921B219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.m in Sources */,
 				0490C66A219BBE89001BA533 /* NSMutableDictionary+ZHAdd.m in Sources */,
 				0490C66B219BBE89001BA533 /* NSObject+ZHAdd.m in Sources */,
 				0490C662219BBE89001BA533 /* UIView+ZHAdd.m in Sources */,
@@ -729,6 +768,7 @@
 				0490C68F219BF179001BA533 /* ZHNetClient.m in Sources */,
 				0490C665219BBE89001BA533 /* NSString+ZHAdd.m in Sources */,
 				0490C65C219BBE89001BA533 /* UIScrollView+ZHGesture.m in Sources */,
+				04072F9F219D646E00E97716 /* UIViewController+Comm.m in Sources */,
 				0490C666219BBE89001BA533 /* UITableView+ZHPlaceholder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

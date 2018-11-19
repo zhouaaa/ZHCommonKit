@@ -48,6 +48,11 @@ typedef void(^MClickBlock)(void);
 @property (nonatomic,copy)  MClickBlock clickBlock;
 
 /**
+ -改变按钮的响应区域（上左下右分别增加或减小多少  正数为增加 负数为减小)
+ */
+@property (nonatomic, assign) UIEdgeInsets clickEdgeInsets;
+
+/**
  *  设置button的titleLabel和imageView的布局样式，及间距
  *
  *  @param style titleLabel和imageView的布局样式
@@ -55,6 +60,28 @@ typedef void(^MClickBlock)(void);
  */
 - (void)layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyle)style
                         imageTitleSpace:(CGFloat)space;
+
+
+/**
+ @param timeout     总时间
+ @param waitBlock   倒计时过程中可以再里面做一些操作
+ @param finishBlock 完成时执行的block
+ */
+- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)())finishBlock;
+
+
+#pragma mark -提交按钮时在中间显示一个菊花
+
+/**
+ Button 显示菊花
+ */
+- (void)showIndicator;
+
+
+/**
+ Button 隐藏菊花
+ */
+- (void)hideIndicator;
 
 
 @end

@@ -30,7 +30,7 @@
     
     
     [ZHNetClient initWithBasicURL:nil isOpenLog:YES];
-    ZHNetRequest *request = [[ZHNetRequest alloc] initWithRelativeURLString:@"http://api.bitkk.com/data/v1/kline?market=eth_btc&size=200&type=1min" success:^(id data) {
+    ZHNetRequest *request = [[ZHNetRequest alloc] initWithRelativeURLString:@"https://www.apiopen.top/novelApi" success:^(id data) {
         
     } fail:^(NSError *error) {
         

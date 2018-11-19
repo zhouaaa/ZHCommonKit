@@ -7,6 +7,8 @@
 //
 
 #import "UILabel+ZHAdd.h"
+#import <CoreText/CoreText.h>
+
 
 @implementation UILabel (ZHAdd)
 
@@ -29,6 +31,28 @@
     label.textAlignment = alignment;
     label.font = font;
     return label;
+}
+
+#pragma mark - 设置指定label某些文字之间的间距
+- (void)zh_labelTextSpacingValue:(NSInteger)spacing Range:(NSRange)range
+{
+    // 方法一：#import <CoreText/CoreText.h>
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    // 调整间距
+    [attributedString addAttribute:(__bridge NSString *)kCTKernAttributeName value:@(spacing) range:range];
+    self.attributedText = attributedString;
+    
+    
+    // 方法二：  富文本
+    /**
+     NSMutableAttributedString *attributeString =  [[NSMutableAttributedString alloc] initWithString:self.text];
+     CGSize attributeSize = [attributeString.string sizeWithAttributes:@{NSFontAttributeName:self.font}];
+     CGSize adjustedSize = CGSizeMake(ceilf(attributeSize.width), ceilf(attributeSize.height));
+     CGSize frame = self.frame.size;
+     NSNumber *wordSpace = [NSNumber numberWithInt:((frame.width-adjustedSize.width)/(attributeString.length-1))];
+     // 调整指定位置文字间距
+     [attributeString addAttribute:NSKernAttributeName value:wordSpace range:range];
+     */
 }
 
 - (void)setLineSpaceWithString:(CGFloat)lineSpace

@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
               textAlignment:(NSTextAlignment)alignment
                        font:(UIFont *)font;
 
+
+#pragma mark - 设置指定label某些文字之间的间距
+- (void)zh_labelTextSpacingValue:(NSInteger)spacing Range:(NSRange)range;
+
+
 //设置Label的行间距
 - (void)setLineSpaceWithString:(CGFloat)lineSpace;
 

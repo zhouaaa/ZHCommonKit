@@ -82,6 +82,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)jsonStringEncoded;
 
 
+#pragma mark - 字典转模型KVC实现(自动生成模型属性代码)
+
+/**
+ 自动生成模型属性代码
+ */
+- (void)zh_createPropertyCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

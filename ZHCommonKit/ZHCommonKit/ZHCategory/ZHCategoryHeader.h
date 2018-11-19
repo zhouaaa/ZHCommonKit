@@ -22,7 +22,7 @@
 #pragma mark - NSString
 
 #import "NSString+ZHAdd.h"
-
+#import "NSMutableAttributedString+ZHAdd.h"
 
 #pragma mark - UIView
 
@@ -57,6 +57,14 @@
 
 #import "UIApplication+ZHAdd.h"
 
+#pragma mark -  UINavigationController
+
+#import "UINavigationController+ZHAdd.h"
+
+#pragma mark -  UILabel
+
+#import "UILabel+ZHAdd.h"
+
 #pragma mark - NSURL
 
 #import "NSURL+ZHAdd.h"
@@ -78,6 +86,11 @@
 #pragma mark - Utility
 
 #import "ZHTime.h"
+
+#pragma mark  - UITextField
+
+#import "UITextField+ZHHistory.h"
+
 
 
 #ifdef DEBUG
