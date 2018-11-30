@@ -11,6 +11,7 @@
 #import "ZHNetClient.h"
 #import "UIViewController+NetRequestLib.h"
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @class ZHNetRequest;
 

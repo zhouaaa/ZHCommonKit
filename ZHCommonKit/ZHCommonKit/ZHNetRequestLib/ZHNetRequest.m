@@ -7,7 +7,7 @@
 //
 
 #import "ZHNetRequest.h"
-
+#import "ZHJRToast.h"
 
 #ifdef DEBUG
 #define LLog(...) printf("[%s] %s [第%d行]: %s\n", __TIME__ ,__PRETTY_FUNCTION__ ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
@@ -22,14 +22,34 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
 @implementation ZHNetRequest
 
 #pragma init NetRequest
+
+
+/**
+ delegate 不带请求参数
+ 
+ @param relativeURLString relativeURLString description
+ @param delegate delegate description
+ @return return value description
+ */
 - (instancetype)initWithRelativeURLString:(NSString*)relativeURLString
-                                 delegate:(id)delegate;{
+                                 delegate:(id)delegate
+{
     return [self initWithRelativeURLString:relativeURLString delegate:delegate param:nil];
 }
 
+
+/**
+ delegate 带请求参数
+ 
+ @param relativeURLString relativeURLString description
+ @param delegate delegate description
+ @param param param description
+ @return return value description
+ */
 - (instancetype)initWithRelativeURLString:(NSString*)relativeURLString
                                  delegate:(id)delegate
-                                    param:(id)param;{
+                                    param:(id)param
+{
     self = [super init];
     if (self) {
         [self initSetParam];
@@ -40,16 +60,38 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
     return self;
 }
 
-- (instancetype)initWithRelativeURLString:(NSString*)relativeURLString
-                                  success:(NetRequestSuccess)success
-                                     fail:(NetRequestFail)fail{
-    return [self initWithRelativeURLString:relativeURLString success:success fail:fail param:nil];
-}
 
+
+/**
+ block 不带请求参数
+ 
+ @param relativeURLString relativeURLString description
+ @param success success description
+ @param fail fail description
+ @return return value description
+ */
 - (instancetype)initWithRelativeURLString:(NSString*)relativeURLString
                                   success:(NetRequestSuccess)success
                                      fail:(NetRequestFail)fail
-                                    param:(id)param;{
+{
+    return [self initWithRelativeURLString:relativeURLString success:success fail:fail param:nil];
+}
+
+
+/**
+ block 带请求参数
+ 
+ @param relativeURLString relativeURLString description
+ @param success success description
+ @param fail fail description
+ @param param param description
+ @return return value description
+ */
+- (instancetype)initWithRelativeURLString:(NSString*)relativeURLString
+                                  success:(NetRequestSuccess)success
+                                     fail:(NetRequestFail)fail
+                                    param:(id)param
+{
     self = [super init];
     if (self) {
         [self initSetParam];
@@ -62,46 +104,73 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
 }
 
 #pragma mark load data
--(void)loadData{//加载数据
+
+
+/**
+ GET 加载数据
+ */
+-(void)loadData
+{
     self.currentPage = 1;
     [self loadDataWithPage:self.currentPage];
 }
 
--(void)loadDataWithPage:(NSInteger)page{ //获取page页的数据
+
+/**
+ GET 加载数据
+
+ @param page    带页数
+ */
+-(void)loadDataWithPage:(NSInteger)page
+{
+    //网络检查
+    [ZHNetClient checkingNetworkResult:^(ZHNetClientNetworkStatus status) {
+        //无网状态
+        if (status == ZHNetClientStatusNotReachable) {
+            [ZHJRToast showWithText:@"请先检查网络"];
+            return ;
+        }
+    }];
+    
+    //设置页数
     self.currentPage = page;
+    //请求前的准备
     [self setWillNetRequstWithInUseCashe:true];
 
+    //请求路径
     NSString *tempURLString = [self returnRelativeURLStringWithPage:page];
+    
     [[ZHNetClient sharedManager] GET:tempURLString
-                        parameters:self.param
-                          progress:nil
-                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                               if (self.isUseError) {
-                                   [self removeErrorView];
-                               }
-                               
-                        [self setNetRequstFinishedWithData:responseObject];
-                               if (self.isUseCashe) {
-                                   [[ZHNetRequestCashData shareManager] saveData:responseObject page:self.currentPage urlString:tempURLString];
-                               }
-                        }
-                           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                               [self setNetRequstFailedWithError:error];
-                               if (self.isUseError) {
-                                   [self addErrorView];
-                               }
-                        }];
+                                  parameters:self.param
+                                    progress:nil
+                                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                         //是否使用错误 View
+                                        if (self.isUseError) {[self removeErrorView];}
+                                         //网加载成功后的传旨
+                                        [self setNetRequstFinishedWithData:responseObject];
+                                         //是否使用缓存
+                                        if (self.isUseCashe) {[[ZHNetRequestCashData shareManager] saveData:responseObject page:self.currentPage urlString:tempURLString];}
+                                     }
+                                     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+             {
+                 //传入错误信息
+            [self setNetRequstFailedWithError:error];
+            if (self.isUseError) {[self addErrorView];}
+        }];
 }
 
--(void)reloadData{ //重新加载数据
+
+
+/**
+ GET 重新加载数据 刷新
+ */
+-(void)reloadData{
     [self loadDataWithPage:1];
 }
 
--(void)loadNextPage{//加载下一页数据
-    self.currentPage += 1;
-    [self loadDataWithPage:self.currentPage];
-}
-
+/**
+ GET 加载前一页数据
+ */
 -(void)loadPrePage{//加载前一页数据
     self.currentPage -= 1;
     if (self.currentPage <= 0) {
@@ -110,53 +179,111 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
     [self loadDataWithPage:self.currentPage];
 }
 
+
+/**
+ GET 加载下一页数据
+ */
+-(void)loadNextPage
+{
+    self.currentPage += 1;
+    [self loadDataWithPage:self.currentPage];
+}
+
+
+
 #pragma post data
--(void)postData{ //提交数据
+
+
+/**
+ 发起 POST 请求
+ */
+-(void)postData{
     self.currentPage = 1;
     [self postDataWithPage:self.currentPage];
 }
 
--(void)postDataWithPage:(NSInteger)page{ //获取page页的数据
-    self.currentPage = page;
-    [self setWillNetRequstWithInUseCashe:true];
-    NSString *tempURLString = [self returnRelativeURLStringWithPage:page];
-    [[ZHNetClient sharedManager] POST:tempURLString
-                         parameters:self.param
-                           progress:nil
-                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                if (self.isUseError) { //移除错误提示
-                                    [self removeErrorView];
-                                }
-                                
-                                [self setNetRequstFinishedWithData:responseObject];
-                                if (self.isUseCashe) {
-                                    [[ZHNetRequestCashData shareManager] saveData:responseObject page:self.currentPage urlString:tempURLString];
-                                }
-                            }
-                            failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                [self setNetRequstFailedWithError:error];
-                                if (self.isUseError) { //加错误提示
-                                    [self addErrorView];
-                                }
-                            }];
-}
 
--(void)reloadPostData{ //重新提交数据
+
+/**
+ POST 重新提交数据
+ */
+-(void)reloadPostData
+{
     self.currentPage = 1;
     [self postDataWithPage:self.currentPage];
 }
 
--(void)postNextPage{ //加载下一页数据
+
+/**
+ POST 加载下一页数据
+ */
+-(void)postNextPage
+{
     self.currentPage += 1;
     [self postDataWithPage:self.currentPage];
 }
 
--(void)postPrePage{ //加载前一页数据
+
+
+/**
+ POST 加载前一页数据
+ */
+-(void)postPrePage
+{
     self.currentPage -= 1;
     if (self.currentPage <= 0) {
         self.currentPage = 1;
     }
     [self postDataWithPage:self.currentPage];
+}
+
+
+/**
+ POST 请求
+
+ @param page page description
+ */
+-(void)postDataWithPage:(NSInteger)page
+{
+    //网络检查
+    [ZHNetClient checkingNetworkResult:^(ZHNetClientNetworkStatus status) {
+        //无网状态
+        if (status == ZHNetClientStatusNotReachable) {
+            [ZHJRToast showWithText:@"请先检查网络"];
+            return ;
+        }
+    }];
+    
+    //设置页数
+    self.currentPage = page;
+    //请求前的准备
+    [self setWillNetRequstWithInUseCashe:true];
+    
+    //请求路径
+    NSString *tempURLString = [self returnRelativeURLStringWithPage:page];
+    
+    //断言
+    NSAssert(tempURLString != nil, @"url不能为空");
+    
+    [[ZHNetClient sharedManager] POST:tempURLString parameters:self.param progress:^(NSProgress * _Nonnull uploadProgress) {
+                
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                if (self.isUseError) { //移除错误提示
+                    [self removeErrorView];
+                }
+                //缓存
+                if (self.isUseCashe) {
+                    [[ZHNetRequestCashData shareManager] saveData:responseObject page:self.currentPage urlString:tempURLString];
+                }
+                
+                [self setNetRequstFinishedWithData:responseObject];
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [self setNetRequstFailedWithError:error];
+                if (self.isUseError) { //加错误提示
+                    [self addErrorView];
+                }
+            }];
 }
 
 -(void)initSetParam{
@@ -248,8 +375,7 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
                                       fileName:fileName
                                       mimeType:mimeType];
           } progress:^(NSProgress * _Nonnull uploadProgress) {
-              
-              LLog(@"下载进度--%.1f",1.0 * uploadProgress.completedUnitCount/uploadProgress.totalUnitCount);
+              LLog(@"上传进度--%.1f",1.0 * uploadProgress.completedUnitCount/uploadProgress.totalUnitCount);
               
           } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               [self setNetRequstFinishedWithData:responseObject];
@@ -258,7 +384,15 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
           }];
 }
 
-#pragma mark 返回相对路径
+
+
+
+/**
+ 返回相对路径 加入Page
+
+ @param page page description
+ @return return value description
+ */
 -(NSString*)returnRelativeURLStringWithPage:(NSInteger)page{
     if (page == 0) {
         return [_relativeURLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -282,8 +416,10 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
 #pragma mark 开始请求设置
 -(void)setWillNetRequstWithInUseCashe:(BOOL)inUseCashe //inUseCashe 里面是否使用缓存 get post 为ture de patch false
 {
+    //设置请求头
     [self setHeadParam];
-    //开始加载数据
+    
+    //开始 Delegate 加载数据
     if([_delegate respondsToSelector:@selector(willNetRequest:casheData:)]){
         id data = nil;
         if (self.isUseCashe && inUseCashe) {
@@ -292,14 +428,23 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
         [_delegate willNetRequest:self casheData:data];
     }
     
+    //Block  从缓存中成功取出数据
     if (self.success != nil && self.isUseCashe  && inUseCashe) {
         id data = [[ZHNetRequestCashData shareManager] getDataByUrlString:self.relativeURLString];
         self.success(data);
     }
+    
 }
 
-#pragma mark 请求成功
--(void)setNetRequstFinishedWithData:(id)responseObject{
+
+/**
+ 请求成功 的方法
+
+ @param responseObject responseObject description
+ */
+-(void)setNetRequstFinishedWithData:(id)responseObject
+{
+    
     if ([self.delegate respondsToSelector:@selector(netRequestDidFinished:responseData:)]) {
         [self.delegate netRequestDidFinished:self responseData:responseObject];
     }
@@ -315,8 +460,15 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
 }
 
 
-#pragma mark 请求失败
--(void)setNetRequstFailedWithError:(NSError*)error{
+
+/**
+请求失败 的方法
+
+ @param error error description
+ */
+-(void)setNetRequstFailedWithError:(NSError*)error
+{
+    
     if ([self.delegate respondsToSelector:@selector(netRequestDidFailed:error:)]) {
         [self.delegate netRequestDidFailed:self error:error];
     }
@@ -331,6 +483,10 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
     }
 }
 
+
+/**
+ 给页面添加错误提示View
+ */
 -(void)addErrorView{
     if ([self.delegate isKindOfClass:[UIViewController class]]) {
         UIViewController *vc = (UIViewController*)self.delegate;
@@ -338,6 +494,10 @@ static BOOL _isOpenLog;   // 是否已开启日志打印
     }
 }
 
+
+/**
+  移除错误页面
+ */
 -(void)removeErrorView{
     if ([self.delegate isKindOfClass:[UIViewController class]]) {
         UIViewController *vc = (UIViewController*)self.delegate;

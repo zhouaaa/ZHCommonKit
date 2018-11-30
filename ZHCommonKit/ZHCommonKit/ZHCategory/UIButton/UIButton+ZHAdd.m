@@ -191,10 +191,10 @@
     
     // 如果想要设置统一的间隔时间，可以在此处加上以下几句
     // 值得提醒一下：如果这里设置了统一的时间间隔，会影响UISwitch,如果想统一设置，又不想影响UISwitch，建议将UIControl分类，改成UIButton分类，实现方法是一样的
-    // if (self.custom_acceptEventInterval <= 0) {
-    //     // 如果没有自定义时间间隔，则默认为2秒
-    //    self.custom_acceptEventInterval = 2;
-    // }
+     if (self.custom_acceptEventInterval <= 0) {
+         // 如果没有自定义时间间隔，则默认为2秒
+        self.custom_acceptEventInterval = 2;
+     }
     
     // 是否小于设定的时间间隔
     BOOL needSendAction = (NSDate.date.timeIntervalSince1970 - self.custom_acceptEventTime >= self.custom_acceptEventInterval);
@@ -277,7 +277,7 @@
  @param waitBlock   倒计时过程中可以再里面做一些操作
  @param finishBlock 完成时执行的block
  */
-- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)())finishBlock
+- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)(void))finishBlock
 {
     __block NSInteger timeOut = timeout;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);

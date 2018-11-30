@@ -121,6 +121,25 @@ static NSString *nameWithSetterGetterKey =@"nameWithSetterGetterKey";
     
     [backBn addTarget:self action:@selector(CommBackPress:) forControlEvents:UIControlEventTouchUpInside];
     
+    //字体颜色
+    [backBn setTitleColor:[ZHConfig shareConfig].navBarTitleColor forState:UIControlStateNormal];
+    
+    //字体大小
+    if ([ZHConfig shareConfig].backConfig.backFont) {
+        [backBn.titleLabel setFont:[ZHConfig shareConfig].backConfig.backFont];
+    }
+    
+    //返回图片
+    if ([ZHConfig shareConfig].backConfig.backImageName) {
+        [backBn setImage:[UIImage imageNamed:[ZHConfig shareConfig].backConfig.backImageName] forState:UIControlStateNormal];
+    }
+    
+    //返回标题
+    if ([ZHConfig shareConfig].backConfig.backTitleName) {
+        [backBn setTitle:[ZHConfig shareConfig].backConfig.backTitleName forState:UIControlStateNormal];
+    }
+    
+    
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:backBn];
     self.navigationItem.leftBarButtonItem = leftItem;
     

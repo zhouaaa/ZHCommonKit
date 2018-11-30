@@ -67,7 +67,7 @@ typedef void(^MClickBlock)(void);
  @param waitBlock   倒计时过程中可以再里面做一些操作
  @param finishBlock 完成时执行的block
  */
-- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)())finishBlock;
+- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)(void))finishBlock;
 
 
 #pragma mark -提交按钮时在中间显示一个菊花

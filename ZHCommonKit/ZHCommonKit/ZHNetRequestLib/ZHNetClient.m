@@ -64,4 +64,36 @@ static ZHNetClient * client = nil;
 }
 
 
+/**
+ 监听网络状态的变化
+ 
+ @param networkStatus networkStatus description
+ */
++ (void)checkingNetworkResult:(void (^)(ZHNetClientNetworkStatus status))networkStatus
+{
+    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [reachabilityManager startMonitoring];
+    //添加状态
+    [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusUnknown) {
+            //未知状态
+            if (networkStatus) networkStatus(ZHNetClientStatusUnknown);
+            
+        }else if (status == AFNetworkReachabilityStatusNotReachable){
+            //无网络
+            if (networkStatus) networkStatus(ZHNetClientStatusNotReachable);
+            
+        }else if (status == AFNetworkReachabilityStatusReachableViaWWAN){
+            //移动设备网络
+            if (networkStatus) networkStatus(ZHNetClientStatusReachableViaWWAN);
+            
+        }else if (status == AFNetworkReachabilityStatusReachableViaWiFi){
+            //wifi
+            if (networkStatus) networkStatus(ZHNetClientStatusReachableViaWiFi);
+            
+        }
+    }];
+}
+
+
 @end

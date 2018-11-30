@@ -45,14 +45,14 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return 截图图片
  */
-- (nullable UIImage *)m_snapshotImage;
+- (nullable UIImage *)zh_snapshotImage;
 
 /**
  视图截图生成 PDF 文件
  
  @return  PDF文件
  */
-- (nullable NSData *)m_snapshotPDF;
+- (nullable NSData *)zh_snapshotPDF;
 
 #pragma mark - 视图特效
 
@@ -66,10 +66,34 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setLayerShadow:(nullable UIColor *)color
                 offset:(CGSize)offset radius:(CGFloat)radius;
 
+
+
+/**
+  给View添加阴影
+ */
+- (void) makeInsetShadow;
+
+/**
+ 给View添加阴影
+
+ @param radius radius description
+ @param alpha alpha description
+ */
+- (void) makeInsetShadowWithRadius:(float)radius Alpha:(float)alpha;
+
+/**
+ 给View添加阴影
+
+ @param radius radius description
+ @param color color description
+ @param directions @"top", @"bottom", @"left", @"right"
+ */
+- (void) makeInsetShadowWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions;
+
 /**
  移除当前视图中所有子视图
  */
-- (void)m_removeAllSubview;
+- (void)zh_removeAllSubview;
 
 #pragma mark - 坐标转化
 //以下摘自 YYKit
