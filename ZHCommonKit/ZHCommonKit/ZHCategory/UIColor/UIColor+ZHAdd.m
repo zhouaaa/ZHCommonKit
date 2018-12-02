@@ -69,31 +69,31 @@
 
 #pragma mark - 十六进制转颜色值
 
-+ (UIColor *)m_colorWithHex:(NSInteger)hexValue{
-    return [self m_colorWithHex:hexValue alpha:1.0];
++ (UIColor *)zh_colorWithHex:(NSInteger)hexValue{
+    return [self zh_colorWithHex:hexValue alpha:1.0];
 }
 
-+ (UIColor *)m_colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alphaValue{
++ (UIColor *)zh_colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alphaValue{
     return  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:alphaValue];
 }
 
 #pragma mark - 十六进制字符串转颜色值
 
-+ (UIColor *)m_colorWithHexString:(NSString *)hexString {
++ (UIColor *)zh_colorWithHexString:(NSString *)hexString {
     
-    return [self m_getColorWithHexString:hexString
+    return [self zh_getColorWithHexString:hexString
                                    alpha:1.0f];
 }
 
 
-+ (UIColor *)m_colorWithHexString:(NSString *)hexString
++ (UIColor *)zh_colorWithHexString:(NSString *)hexString
                             alpha:(CGFloat)alphaValue {
     
-    return [self m_getColorWithHexString:hexString
+    return [self zh_getColorWithHexString:hexString
                                    alpha:alphaValue];
 }
 
-+ (UIColor *)m_getColorWithHexString:(NSString *)hexString
++ (UIColor *)zh_getColorWithHexString:(NSString *)hexString
                                alpha:(CGFloat)alphaValue {
     
     NSString *colorString = [[hexString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];

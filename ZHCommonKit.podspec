@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZHCommonKit"
-  spec.version      = "0.1.1"
-  spec.summary      = "日常项目常用的Kit"
+  spec.version      = "0.1.3"
+  spec.summary      = "日常项目常用的Kit[fix bug]"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -64,11 +64,11 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  spec.platform     = :ios
-  #spec.platform     = :ios, "9.0"
+  #spec.platform     = :ios
+  spec.platform     = :ios, "9.0"
 
   #  When using multiple platforms
-  spec.ios.deployment_target = "9.0"
+  #spec.ios.deployment_target = "9.0"
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"

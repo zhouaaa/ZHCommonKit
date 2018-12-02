@@ -63,22 +63,22 @@
 
 - (BOOL)zh_addInstanceMethonWithOriginalSelector:(SEL)originalSelector swizzledSelector:(SEL)swizzledSelector{
     Class class = self.class;
-    Method m_swizzledSelector = class_getInstanceMethod(class, swizzledSelector);
-    BOOL isAddMethon = class_addMethod(class, originalSelector, class_getMethodImplementation(class, swizzledSelector), method_getTypeEncoding(m_swizzledSelector));
+    Method zh_swizzledSelector = class_getInstanceMethod(class, swizzledSelector);
+    BOOL isAddMethon = class_addMethod(class, originalSelector, class_getMethodImplementation(class, swizzledSelector), method_getTypeEncoding(zh_swizzledSelector));
     return isAddMethon;
     
 }
 
 - (void)zh_exchangeInstanceWithOriginalSelector:(SEL)originalSelector swizzledSelecor:(SEL)swizzledSelector{
     Class class = self.class;
-    Method m_originalSelect = class_getInstanceMethod(class, originalSelector);
-    Method m_swizzledSelect = class_getInstanceMethod(class, swizzledSelector);
+    Method zh_originalSelect = class_getInstanceMethod(class, originalSelector);
+    Method zh_swizzledSelect = class_getInstanceMethod(class, swizzledSelector);
     
     BOOL isAddMethod = [self zh_addInstanceMethonWithOriginalSelector:originalSelector swizzledSelector:swizzledSelector];
     if (isAddMethod) {
-        class_replaceMethod(class, swizzledSelector, method_getImplementation(m_originalSelect), method_getTypeEncoding(m_originalSelect));
+        class_replaceMethod(class, swizzledSelector, method_getImplementation(zh_originalSelect), method_getTypeEncoding(zh_originalSelect));
     }else{
-        method_exchangeImplementations(m_originalSelect, m_swizzledSelect);
+        method_exchangeImplementations(zh_originalSelect, zh_swizzledSelect);
     }
 }
 
