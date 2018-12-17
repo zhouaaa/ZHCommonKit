@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZHCommonKit"
-  spec.version      = "0.1.3"
-  spec.summary      = "日常项目常用的Kit[fix bug]"
+  spec.version      = "0.1.4"
+  spec.summary      = "日常项目常用的Kit[添加资源图片]"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -107,6 +107,8 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
+    spec.resource = "ZHCommonKit/ZHCommonKit/ZHCategory/ZHEmptyView/Resources/ZHEmptySource.bundle";
+    spec.resource = "ZHCommonKit/ZHCommonKit/ZHComm/ZHBackConfig.bundle"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

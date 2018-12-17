@@ -24,6 +24,9 @@
 		044C7D7C219BBB300028FEC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C7D7B219BBB300028FEC8 /* main.m */; };
 		044C7D86219BBB300028FEC8 /* ZHCommonKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C7D85219BBB300028FEC8 /* ZHCommonKitTests.m */; };
 		044C7D91219BBB300028FEC8 /* ZHCommonKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C7D90219BBB300028FEC8 /* ZHCommonKitUITests.m */; };
+		045EAD2921BFB84300517003 /* ZHBackConfig.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 045EAD2821BFB84300517003 /* ZHBackConfig.bundle */; };
+		0489485E21C7704E00540FED /* UISearchBar+ZHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489485D21C7704E00540FED /* UISearchBar+ZHAdd.m */; };
+		0489486021C779AC00540FED /* ZHCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0489485F21C779AB00540FED /* ZHCommonKit.podspec */; };
 		0490C65B219BBE89001BA533 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C620219BBE89001BA533 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		0490C65C219BBE89001BA533 /* UIScrollView+ZHGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C627219BBE89001BA533 /* UIScrollView+ZHGesture.m */; };
 		0490C65D219BBE89001BA533 /* UILabel+ZHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490C62A219BBE89001BA533 /* UILabel+ZHAdd.m */; };
@@ -105,6 +108,10 @@
 		044C7D8C219BBB300028FEC8 /* ZHCommonKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZHCommonKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		044C7D90219BBB300028FEC8 /* ZHCommonKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCommonKitUITests.m; sourceTree = "<group>"; };
 		044C7D92219BBB300028FEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		045EAD2821BFB84300517003 /* ZHBackConfig.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZHBackConfig.bundle; sourceTree = "<group>"; };
+		0489485C21C7704E00540FED /* UISearchBar+ZHAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+ZHAdd.h"; sourceTree = "<group>"; };
+		0489485D21C7704E00540FED /* UISearchBar+ZHAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+ZHAdd.m"; sourceTree = "<group>"; };
+		0489485F21C779AB00540FED /* ZHCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZHCommonKit.podspec; sourceTree = "<group>"; };
 		0490C61F219BBE89001BA533 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		0490C620219BBE89001BA533 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		0490C626219BBE89001BA533 /* UIScrollView+ZHGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZHGesture.h"; sourceTree = "<group>"; };
@@ -241,6 +248,7 @@
 		044C7D60219BBB2D0028FEC8 = {
 			isa = PBXGroup;
 			children = (
+				0489485F21C779AB00540FED /* ZHCommonKit.podspec */,
 				044C7D6B219BBB2D0028FEC8 /* ZHCommonKit */,
 				044C7D84219BBB300028FEC8 /* ZHCommonKitTests */,
 				044C7D8F219BBB300028FEC8 /* ZHCommonKitUITests */,
@@ -295,6 +303,15 @@
 			path = ZHCommonKitUITests;
 			sourceTree = "<group>";
 		};
+		0489485B21C7703200540FED /* UISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				0489485C21C7704E00540FED /* UISearchBar+ZHAdd.h */,
+				0489485D21C7704E00540FED /* UISearchBar+ZHAdd.m */,
+			);
+			path = UISearchBar;
+			sourceTree = "<group>";
+		};
 		0490C61D219BBE89001BA533 /* ZHCommonKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +346,7 @@
 		0490C624219BBE89001BA533 /* ZHCategory */ = {
 			isa = PBXGroup;
 			children = (
+				0489485B21C7703200540FED /* UISearchBar */,
 				040EF97E21B0EA4E0014306A /* ZHEmptyView */,
 				04089220219ED52100B22A91 /* UITextField */,
 				0490C646219BBE89001BA533 /* ZHCategoryHeader.h */,
@@ -529,6 +547,7 @@
 				0424B66121AE486F00405C89 /* ZHConfig.m */,
 				0424B65D21AE47F500405C89 /* ZHBackConfig.h */,
 				0424B65E21AE47F500405C89 /* ZHBackConfig.m */,
+				045EAD2821BFB84300517003 /* ZHBackConfig.bundle */,
 			);
 			path = ZHComm;
 			sourceTree = "<group>";
@@ -667,6 +686,8 @@
 				044C7D76219BBB300028FEC8 /* Assets.xcassets in Resources */,
 				040EF98721B0EA4E0014306A /* ZHEmptySource.bundle in Resources */,
 				044C7D74219BBB2D0028FEC8 /* Main.storyboard in Resources */,
+				0489486021C779AC00540FED /* ZHCommonKit.podspec in Resources */,
+				045EAD2921BFB84300517003 /* ZHBackConfig.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +826,7 @@
 				0408921B219EAD3F00B22A91 /* NSMutableAttributedString+ZHAdd.m in Sources */,
 				0424B65F21AE47F500405C89 /* ZHBackConfig.m in Sources */,
 				0490C66A219BBE89001BA533 /* NSMutableDictionary+ZHAdd.m in Sources */,
+				0489485E21C7704E00540FED /* UISearchBar+ZHAdd.m in Sources */,
 				0490C66B219BBE89001BA533 /* NSObject+ZHAdd.m in Sources */,
 				0490C662219BBE89001BA533 /* UIView+ZHAdd.m in Sources */,
 				0490C66C219BBE89001BA533 /* NSDate+ZHAdd.m in Sources */,

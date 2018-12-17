@@ -31,15 +31,14 @@ static ZHConfig  * config;
         
         self.navBarTitleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1];
         
-        
         self.navBarBGImage = [UIImage imageNamed:@""];
         self.navBarShawdowImage = nil;
         self.navBarTranslucent = YES;
         self.navBarTintColor = [UIColor whiteColor];
         
         self.backConfig = [[ZHBackConfig alloc] init];
-        
-        self.backConfig.backImageName = @"navbar_icon_back";
+        self.backConfig.isNavBack = NO;
+        self.backConfig.backImageName = @"back_gray";
     }
     return self;
 }
@@ -54,7 +53,8 @@ static ZHConfig  * config;
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     
     [[UINavigationBar appearance] setBackgroundImage:self.navBarBGImage forBarMetrics:UIBarMetricsDefault];
-    
+   
+    //导航栏下的分割线
     [[UINavigationBar appearance] setShadowImage:[self createImageWithColor:[UIColor clearColor]]];
     
     [[UINavigationBar appearance] setTranslucent:self.navBarTranslucent];

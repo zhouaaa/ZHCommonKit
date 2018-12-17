@@ -91,6 +91,10 @@
 
 #import "UITextField+ZHHistory.h"
 
+#pragma mark  - UISearchBar
+
+#import "UISearchBar+ZHAdd.h"
+
 
 #pragma mark  ZHEmptyView
 

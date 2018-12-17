@@ -129,10 +129,28 @@ static NSString *nameWithSetterGetterKey =@"nameWithSetterGetterKey";
         [backBn.titleLabel setFont:[ZHConfig shareConfig].backConfig.backFont];
     }
     
+    //.bounle地址
+    NSString *imagePath  = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ZHBackConfig.bundle"];
+    
     //返回图片
-    if ([ZHConfig shareConfig].backConfig.backImageName) {
-        [backBn setImage:[UIImage imageNamed:[ZHConfig shareConfig].backConfig.backImageName] forState:UIControlStateNormal];
+    if ([ZHConfig shareConfig].backConfig.isNavBack) { //使用.boundle
+        if ([UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleLightContent) { //白色
+            [backBn setImage:[UIImage imageNamed:@"navbar_back_white" inBundle:[NSBundle bundleWithPath:imagePath] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        }
+    else if (([UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleDefault))//黑色
+    {
+        [backBn setImage:[UIImage imageNamed:@"navbar_back_gray" inBundle:[NSBundle bundleWithPath:imagePath] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+       }
     }
+    else
+    {
+        if ([ZHConfig shareConfig].backConfig.backImageName) {
+            //.bounle地址
+            NSString *imagePath  = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ZHBackConfig.bundle"];
+            [backBn setImage:[UIImage imageNamed:[ZHConfig shareConfig].backConfig.backImageName inBundle:[NSBundle bundleWithPath:imagePath] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        }
+    }
+    
     
     //返回标题
     if ([ZHConfig shareConfig].backConfig.backTitleName) {

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,copy,nullable) NSString * backImageName; //默认 navbar_icon_back
 @property(nonatomic,copy,nullable) NSString * backTitleName; //默认 nil
-
+@property(nonatomic,assign) BOOL isNavBack;//是否使用 .boundle的返回图片 默认NO
 @property(nonatomic,retain) UIFont * backFont;//字体大小 15
 
 
